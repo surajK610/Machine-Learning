@@ -8,6 +8,7 @@ function [C, sigma] = dataset3Params(X, y, Xval, yval)
 %
 
 % You need to return the following variables correctly.
+options = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30];
 C = 1;
 sigma = 0.3;
 
@@ -24,8 +25,38 @@ sigma = 0.3;
 %
 
 
+% error = 0;
+% bestError = 1;
+% bestC = 0;
+% bestSigma = 0;
+% 
+% 
+% for i = options
+%     for j = options
+%         fprintf('i: %f   ', i)
+%         fprintf('j: %f   ', j)
+%         C = i;
+%         sigma = j;
+%         
+%         model= svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma));
+%         predictions = svmPredict(model, Xval);
+%         error = mean(double(predictions ~= yval));
+%         fprintf('error: %f   \n', error)
+%         if error < bestError
+%             bestC = C;
+%             bestSigma = sigma;
+%             bestError = error;
+%         end;
+%     end;
+% end;
+% 
+% fprintf('C: %f   ', bestC)
+% fprintf('\nsigma: %f   ', bestSigma)
+% C = bestC;
+% sigma = bestSigma;
 
-
+C = 1;
+sigma = .1;
 
 
 
